@@ -1,0 +1,16 @@
+menu "ota_driver_component"
+config version
+    float "firmwareVersion"      
+    default 0.1
+config uart_num
+    string "SiteUrl"
+    default "localhost:8080/
+    help
+    blank help
+config FIRMWARE_UPGRADE_URL
+    string "firmware upgrade url endpoint"
+    default "https://192.168.0.3:8070/hello-world.bin"
+    help
+        URL of server which hosts the firmware
+        image.
+endmenu
