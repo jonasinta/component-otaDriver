@@ -1,10 +1,10 @@
 menu "ota_driver_component"
 config version
-    float "firmwareVersion"      
+    string "firmwareVersion"      
     default 0.1
-config uart_num
+config site_url
     string "SiteUrl"
-    default "localhost:8080/
+    default "localhost:8080/"
     help
     blank help
 config FIRMWARE_UPGRADE_URL

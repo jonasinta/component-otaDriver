@@ -9,22 +9,26 @@
 
 
 #include <string.h>
+#include "ota_driver_component.h"
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "cJSON.h"
 #include "driver/gpio.h"
-#include "esp_system.h"
-#include "esp_log.h"
 #include "esp_http_client.h"
 #include "esp_https_ota.h"
+#include "esp_log.h"
+#include "esp_system.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+
 #define FIRMWARE_VERSION	0.1
-#define UPDATE_JSON_URL		"https://esp32tutorial.netsons.org/https_ota/firmware.json"
+#define UPDATE_JSON_URL	"https://192.168.1.104:8070/firmware.json"
+//#define UPDATE_JSON_URL		"https://esp32tutorial.netsons.org/https_ota/firmware.json"
 
 static const char *TAG = "ota_driver_component";
 // server certificate
-extern const uint8_t server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
-extern const uint8_t server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
+extern const char server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
+extern const char server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
 
 // receive buffer
 char rcv_buffer[200];
